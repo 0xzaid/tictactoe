@@ -110,20 +110,14 @@ class Game extends React.Component {
       // if all squares are filled, draw
       status = "Draw";
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      status = "Current turn: " + (this.state.xIsNext ? "X" : "O");
     }
 
     return (
-      <div className="">
-        <div className="flex w-full items-center justify-center">
-          <h1 className="text-blue-500 font-bold text-9xl">
-            TicTacToe!  
-          </h1>
-        </div>
-
+      <div>
         <div className="p-10 h-auto">
           {/* Player status */}
-          <div className="text-blue-500 font-bold mr-20 flex items-center justify-center text-4xl">
+          <div className="text-blue-500 font-bold mr-20 flex items-center justify-center text-4xl select-none">
             {status}
           </div>
 
@@ -131,8 +125,9 @@ class Game extends React.Component {
 
             {/* Reset Button  */}
             <div className="p-5">
+            {/* transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 */}
               <button
-                className="bg-blue-500 hover:bg-blue-400 text-white text-2xl p-2 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+                className="bg-blue-500 hover:bg-blue-400 text-white text-2xl p-2 border-b-4 border-blue-700 hover:border-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 rounded"
                 onClick={() => this.resetGame()}>New Game
               </button>
             </div>
@@ -146,7 +141,7 @@ class Game extends React.Component {
             </div>
 
             {/* Move History */}
-            <div className="text-white bg-blue-500 px-8 ml-5 h-fit rounded ">
+            <div className="text-white bg-blue-500 px-8 ml-5 h-fit rounded select-none">
               <p className="text-2xl">Move history</p>
               <ol className="list-disc">{moves}</ol>
             </div>
